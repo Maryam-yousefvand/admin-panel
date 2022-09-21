@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+@font-face {
+    font-family: 'bYekan';
+    src: url("./font/bYekan.eot") format('eot');
+    src: url("./font/bYekan.eot?#iefix") format('embedded-opentype'),
+        url("./font/bYekan.otf") format('otf'),
+        url("./font/bYekan.woff2") format('woff2'),
+        url("./font/bYekan.woff") format('woff'),
+        url("./font/bYekan.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'tahoma';
+    src: url("./font/Tahoma.eot") format('eot');
+    src: url("./font/Tahoma.eot?#iefix") format('embedded-opentype'),
+        url("./font/Tahoma.otf") format('otf'),
+        url("./font/Tahoma.woff2") format('woff2'),
+        url("./font/Tahoma.woff2") format('woff'),
+        url("./font/Tahoma.ttf") format('truetype');
+}
+
+
+
+
+
+
+*,
+::after,
+::before{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    direction: rtl;
+   font-family: bYekan;  
+}
+
+input{
+    outline: none;
+}
+
+.react-confirm-alert-body{
+    font-family: bYekan !important;
+}
+
+
