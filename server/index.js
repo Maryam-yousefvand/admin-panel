@@ -2,6 +2,8 @@ let express = require('express');
 let mongoose = require('mongoose');
 let cors = require('cors');
 let bodyParser = require('body-parser');
+const path = require('path')
+
 const loginRoute = require('../server/routes/login')
 const registerRoute = require('../server/routes/register')
 
