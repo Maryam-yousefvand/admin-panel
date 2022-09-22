@@ -30,7 +30,7 @@
   },
 
  "scripts": {
-   "start": "node build/server",
+   "start": "nodemon --exec babel-node server/index.js",
     
     "heroku-postbuild" : "cd panel && npm start && npm run build",
     "test": "react-scripts test",
