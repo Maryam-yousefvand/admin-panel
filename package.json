@@ -32,7 +32,7 @@
  "scripts": {
   "start": "node server",
     "build": "react-scripts build",
-    "heroku-postbuild" : "cd panel && npm install && npm run build",
+    "heroku-postbuild" : "cd panel && npm start && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node-env-run server --exec nodemon | pino-colada",
