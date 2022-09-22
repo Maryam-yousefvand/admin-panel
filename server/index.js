@@ -3,6 +3,7 @@ let mongoose = require('mongoose');
 let cors = require('cors');
 let bodyParser = require('body-parser');
 const path = require('path')
+var fs = require('fs');
 
 const loginRoute = require('../server/routes/login')
 const registerRoute = require('../server/routes/register')
@@ -29,7 +30,7 @@ app.use('/login', loginRoute )
 app.use('/register', registerRoute )
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static('./client/build'))
+    app.use(express.static('./panel/build'))
     app.get('*', (req, res) => {
         req.sendFile(path.resolve(__dirname + './panel/build/index.html'))
     })
