@@ -30,8 +30,8 @@
   },
 
  "scripts": {
-  "start": "node server",
-    "build": "react-scripts build",
+   "start": "react-scripts start",
+    
     "heroku-postbuild" : "cd panel && npm start && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
