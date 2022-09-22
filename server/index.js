@@ -4,15 +4,19 @@ let cors = require('cors');
 let bodyParser = require('body-parser');
 const loginRoute = require('../server/routes/login')
 const registerRoute = require('../server/routes/register')
-mongoose
-  .connect('mongodb+srv://panel:757100@cluster0.crumxh7.mongodb.net/panel')
-  
-  .then((x) => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch((err) => {
-    console.error('Error connecting to mongo', err.reason)
-  })
+const port = process.env.PORT || 8080;
+mongoose.Promise = global.Promise;
+mongoose.connect((process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/panel'), {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+        console.log('Database connected sucessfully !')
+    },
+    error => {
+        console.log('Database could not be connected : ' + error)
+    }
+)
+
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -21,6 +25,17 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 app.use('/login', loginRoute )
 app.use('/register', registerRoute )
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static('./client/build'))
+    app.get('*', (req, res) => {
+        req.sendFile(path.resolve(__dirname + './panel/build/index.html'))
+    })
+}
+
+
+
+
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
     console.log('Connected to port ' + port)
