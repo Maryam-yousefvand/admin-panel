@@ -3,14 +3,14 @@
     "heroku": "^7.63.4"
   },
 
-  "scripts": {
-    "start": "react-scripts start",
-    
-    "heroku-postbuild" : "cd panel && npm start && npm run build",
+ "scripts": {
+    "start":"react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "node-env-run server --exec nodemon | pino-colada",
     "dev": "run-p server start"
+  },
     
   }
 }
