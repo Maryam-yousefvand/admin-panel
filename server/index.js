@@ -4,7 +4,7 @@ let cors = require('cors');
 let bodyParser = require('body-parser');
 const loginRoute = require('../server/routes/login')
 const registerRoute = require('../server/routes/register')
-const port = process.env.PORT || 8080;
+
 mongoose.Promise = global.Promise;
 mongoose.connect((process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/panel'), {
     useNewUrlParser: true,
